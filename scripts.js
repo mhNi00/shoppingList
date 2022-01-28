@@ -12,7 +12,7 @@ window.addEventListener("load",function(){
 
       newItem = document.createElement("div");
       newItem.innerHTML = "<div id=shopItem"+idCounter+">"+"<div class=shopItemContents>"+shopItem+
-      "</div><button type=submit id=edit"+idCounter+">Edytuj</button><button  id=delete"+idCounter+" onclick=deleteItem(this)>Usuń</button></div>";
+      "</div><button type=submit id=edit"+idCounter+" onclick=editItem(this)>Edytuj</button><button  id=delete"+idCounter+" onclick=deleteItem(this)>Usuń</button></div>";
       insertPosition = document.getElementById("addItem");
       document.body.insertBefore(newItem, insertPosition);
       idCounter++;
@@ -27,3 +27,25 @@ function deleteItem(element)
   var el = document.getElementById("shopItem"+number);
   el.remove();
 };
+
+function editItem(element)
+{
+  alert("Inside the edit item function!")
+}
+
+function deleteList()
+{
+  for(i=0;i<=idCounter;i++)
+  {
+    var element = document.getElementById("shopItem"+i);
+    if(element==null)
+    {
+      break;
+    }
+    else
+    {
+      element.remove();
+    }
+  }
+  idCounter=0;
+}
